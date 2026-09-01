@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+*{
+  direction: rtl;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
