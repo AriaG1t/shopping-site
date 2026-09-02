@@ -4,3 +4,7 @@
   direction: rtl;
   box-sizing: border-box;
 }
+
+body{
+  padding-top: 50px;
+}
