@@ -4,7 +4,7 @@ import Container from "../Container/Container";
 
 function Navbar(){
     return(
-        <nav className="flex shadow h-10 items-center fixed top-0 bg-white w-[100%]">
+        <nav className="font-bold text-sm flex shadow h-10 items-center fixed top-0 bg-white w-[100%]">
             <Container>
                 <div className="flex justify-between">
                     <ul className="flex">
