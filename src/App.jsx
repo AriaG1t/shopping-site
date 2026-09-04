@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home"
 import Store from "./pages/Store/Store"
 import Navbar from "./components/Navbar/Navbar"
 import Layout from "./components/Layout/Layout"
+import Product from "./pages/Product/Product"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/store" element={<Store />}/>
+          <Route path="/product/:id" element={<Product />}/>
         </Routes>
       </Layout>
     </>
