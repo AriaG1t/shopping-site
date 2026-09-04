@@ -10,7 +10,13 @@ function Product(){
         <Container>
             <div className="">
                 <div className="shadow-md bg-gray-100 shadow-gray-300 p-3 ml-5 w-[25%] rounded float-right">
-                    <img src={pic} className="rounded" alt=""/>
+                    <h2 className="font-bold text-lg">
+                        دلستر جوجو
+                    </h2>
+                    <img src={pic} className="rounded my-2" alt=""/>
+                    <p className="text-sm">
+                        2,000,000 تومان
+                    </p>
                     <Link>
                         <button className="cursor-pointer text-sm border-2 border-transparent anim hover:scale-103 bg-green-400 mt-3 py-2 rounded text-white font-bold w-[100%]">
                             اضافه کردن

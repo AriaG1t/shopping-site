@@ -16,7 +16,9 @@ function Navbar(){
                         </li>
                     </ul>
                     <div>
-                        <button>سبد خرید</button>
+                        <Link to="/cart">
+                            <button className="cursor-pointer">سبد خرید</button>
+                        </Link>
                     </div>
                 </div>
             </Container>
