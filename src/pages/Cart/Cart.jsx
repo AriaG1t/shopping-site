@@ -6,7 +6,7 @@ function Cart(){
     return(
         <Container>
             <h1 className="text-2xl font-bold mb-5">سبد خرید</h1>
-            <div className="grid grid-cols-4 gap-4 mb-10">
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 mb-10">
                 <CartItem />
                 <CartItem />
                 <CartItem />
@@ -14,16 +14,16 @@ function Cart(){
                 <CartItem />
                 <CartItem />
             </div>
-            <div className=" rounded bg-amber-100 p-5 w-[60%] m-auto mb-50 text-center">
+            <div className=" rounded bg-amber-100 p-5 md:w-[60%] w-[90%] m-auto mb-50 text-center">
                 <h2 className="text-2xl font-bold text-amber-700">
                     فاکتور نهایی
                 </h2>
-                <div className="my-5 flex justify-evenly">
+                <div className="my-5 flex justify-evenly sm:flex-row flex-col">
                     <p className="text-base font-bold">قیمت کل: 12,000,000</p>
-                    <p className="text-base text-amber-800 font-bold">تخفیف: 2,000,000</p>
+                    <p className="text-base text-amber-800 font-bold sm:my-0 my-4">تخفیف: 2,000,000</p>
                     <p className="text-base font-bold text-green-900">قیمت نهایی: 10,000,000</p>
                 </div>
-                <button className="text-lg py-2 cursor-pointer anim w-[35%] rounded bg-green-700 hover:scale-105 text-white">ثبت سفارش</button>
+                <button className="text-lg py-2 cursor-pointer anim lg:w-[35%] sm:w-[50%] w-[80%] rounded bg-green-700 hover:scale-105 text-white">ثبت سفارش</button>
             </div>
         </Container>
     )
