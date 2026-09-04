@@ -10,4 +10,7 @@ body{
   font-size: 13px;
 }
 
+.anim{
+    transition: all 300ms;
+}
 
