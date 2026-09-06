@@ -5,7 +5,7 @@ import CartItem from "../../components/CartItem/CartItem";
 function Cart(){
     return(
         <Container>
-            <h1 className="text-2xl font-bold mb-5">سبد خرید</h1>
+            <h1 className="text-2xl text-right font-bold mb-5">سبد خرید</h1>
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 mb-10">
                 <CartItem />
                 <CartItem />

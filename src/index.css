@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 *{
-  direction: rtl;
   box-sizing: border-box;
 }
 

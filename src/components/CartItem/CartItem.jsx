@@ -6,7 +6,7 @@ function CartItem(){
         
         <div className="border border-gray-300 p-3 items-center rounded shadow md:block grid grid-cols-2 gap-5 grid-rows-2">
             <img src={pic} alt="" className="row-span-1 sm:row-span-2 rounded  " />
-            <div className="col-start-2 my-2 flex justify-between items-baseline sm:col-start-2 row-start-1 sm:row-start-1">
+            <div className="my-2 flex justify-between items-baseline sm:col-start-2 row-start-1 sm:row-start-1">
                 <p className="font-bold text-lg">
                     دلستر جوجو
                 </p>
