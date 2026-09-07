@@ -6,10 +6,26 @@
 
 body{
   padding-top: 50px;
-  font-size: 13px;
+  
 }
 
 .anim{
     transition: all 300ms;
+}
+
+.scelt{
+  animation: skeleton 3s infinite alternate;
+  background-size: 400%;
+  background-image: linear-gradient(90deg,rgb(236, 236, 236), rgb(202, 202, 202),rgb(236, 236, 236));
+}
+
+@keyframes skeleton {
+  0%{
+        background-position: 0;
+    }
+
+    100%{
+        background-position: 100%;
+    }
 }
 
