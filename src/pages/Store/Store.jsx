@@ -10,7 +10,7 @@ function Store(){
     const {isLoad, setIsLoad} = useContext(AppContext)
 
     const [products, setProducts] = useState([])
-    console.log(products)
+    
     useEffect(()=>{
         setIsLoad(true)
         getProducts().then((result) => {
@@ -20,17 +20,45 @@ function Store(){
         .catch(error =>
                 console.log(error.message)
         )
+        
     },[])
-    
+
+    const [inputText, setInputText] = useState("")
+
+    const handleIn = (e) =>{
+        setInputText(e.target.value.toLowerCase())
+    }
+
+    let finalData = []
+
+    if (inputText === ""){
+        finalData = products
+    }
+    else {
+        products.map((item) =>{
+            const lower2 = item.category.toLowerCase()
+            const lower = item.title.toLowerCase()
+            if (lower.includes(inputText) || lower2.includes(inputText)){ 
+                finalData = [...finalData,item]
+            }
+        })
+    }
+
     return(
         <Container>
-            <h1 className="mb-4 text-right text-lg font-bold">جدیدترین محصولات</h1>
+            <div className="mb-4 flex flex-col sm:flex-row-reverse justify-between">
+                <h1 className="text-lg font-bold">جدیدترین محصولات</h1>
+                <input
+                onInput={handleIn}
+                id="inp" type="search" placeholder="Search..." className=" px-2 w-[50%] sm:w-auto rounded border shadow border-gray-400" />
+            </div>
+    
             {
                 isLoad ? <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 ">
                     <ItemLoading /> <ItemLoading /> <ItemLoading /> <ItemLoading />
                 </div> :
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 ">
-                    {products.map(
+                    {finalData.map(
                         item => 
                         <Item {...item}/>
                     )}

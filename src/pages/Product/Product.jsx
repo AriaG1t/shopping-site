@@ -1,7 +1,7 @@
 import React, { use, useContext, useEffect, useState } from "react";
 import Container from "../../components/Container/Container";
 import { Link, useParams } from "react-router-dom";
-import { getProducts } from "../../../services/api";
+import { getProduct } from "../../../services/api";
 import ProductLoading from "./ProductLoading";
 import { AppContext } from "../../App";
 
@@ -15,8 +15,8 @@ function Product(){
    
         useEffect(()=>{
             setIsLoad(true)
-            getProducts().then((result) => {
-                setProduct(result[params.id-1])
+            getProduct(params.id).then((result) => {
+                setProduct(result)
                 setIsLoad(false)
             })
             .catch(error =>

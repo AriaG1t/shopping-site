@@ -9,3 +9,9 @@ export async function getProducts() {
 
     return data
 }
+
+export async function getProduct(id) {
+    const { data }= await client(`productItems/${id}`)
+
+    return data
+}
