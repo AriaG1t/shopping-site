@@ -3,11 +3,11 @@ import Container from "../../components/Container/Container";
 import Item from "../../components/Item/Item";
 import { getProducts } from "../../../services/api";
 import ItemLoading from "../../components/Item/ItemLoading";
-import { AppContext } from "../../App";
+import { useAppContext } from "../../../context/AppContext";
 
 function Store(){
 
-    const {isLoad, setIsLoad} = useContext(AppContext)
+    const {isLoad, setIsLoad} = useAppContext()
 
     const [products, setProducts] = useState([])
     
@@ -47,7 +47,7 @@ function Store(){
     return(
         <Container>
             <div className="mb-4 flex flex-col sm:flex-row-reverse justify-between">
-                <h1 className="text-lg font-bold">جدیدترین محصولات</h1>
+                <h1 className="text-lg font-bold mb-4 sm:mb-0">جدیدترین محصولات</h1>
                 <input
                 onInput={handleIn}
                 id="inp" type="search" placeholder="Search..." className=" px-2 w-[50%] sm:w-auto rounded border shadow border-gray-400" />
