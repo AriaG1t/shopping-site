@@ -5,7 +5,7 @@ function Item(props){
 
     return(
 
-        <div className="hoy shadow border border-gray-200 rounded p-3 md:flex flex-col items-center justify-between grid grid-cols-2">
+        <div className="shadow border border-gray-200 rounded p-3 md:flex flex-col items-center justify-between grid grid-cols-2">
            <div className="m-auto w-[80%] md:w-[50%]"> 
                 <img src={props.image} alt="" className="rounded"/>
             </div>

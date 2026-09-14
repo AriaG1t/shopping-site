@@ -1,18 +1,22 @@
 import React from "react";
 import Container from "../../components/Container/Container";
 import CartItem from "../../components/CartItem/CartItem";
+import { useAppContext } from "../../../context/AppContext";
 
 function Cart(){
+
+    const {cartItems} = useAppContext()
+    
+    
     return(
         <Container>
             <h1 className="text-2xl text-right font-bold mb-5">سبد خرید</h1>
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 mb-10">
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {
+                    cartItems.map(item => (
+                        <CartItem {...item}/>
+                    ))
+                }
             </div>
             <div className=" rounded bg-amber-100 p-5 md:w-[60%] w-[90%] m-auto mb-50 text-center">
                 <h2 className="text-2xl font-bold text-amber-700">

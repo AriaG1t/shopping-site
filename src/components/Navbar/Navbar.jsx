@@ -8,7 +8,7 @@ function Navbar(){
     const {totalCartItems, cartItems} = useAppContext()
 
     return(
-        <nav className="font-bold text-sm flex shadow h-10 items-center fixed top-0 bg-white w-[100%]">
+        <nav className="z-1 font-bold text-sm flex shadow h-10 items-center fixed top-0 bg-white w-[100%]">
             <Container>
                 <div className="flex flex-row-reverse justify-between">
                     <ul className="flex">
