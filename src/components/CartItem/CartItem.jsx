@@ -15,7 +15,7 @@ function CartItem({id, qty}){
         .catch(error =>
                 console.log(error.message)
         )
-    },[])
+    },[id])
     
     return(
         

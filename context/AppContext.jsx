@@ -1,7 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import React from "react";
 
  export const AppContext = createContext(null)
+
+ 
 
  export const useAppContext = () =>{
     return useContext(AppContext)
@@ -9,9 +11,30 @@ import React from "react";
 
  export function AppContextProvider({children}) {
 
-    const [cartItems, setCartItems] = useState([])
+  const useLocalStorage = (key, initialVlue) => {
+    const [value, setValue] = useState(() => {
+      let localCart = localStorage.getItem("cartItems")
+      if (localCart != null) {
+        return JSON.parse(localCart)
+      }
+      else {
+        return initialVlue
+      }  
+    })
 
-    const [isLoad, setIsLoad] = useState(false)
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(value))
+    },[key, value])
+    return [value, setValue]
+  }
+
+  const [cartItems, setCartItems] = useLocalStorage("cartItems", [])
+
+  const [isLoad, setIsLoad] = useState(false)
+
+  const [isLogin, setIsLogin] = useState(false)
+
+  const [isOpen, setIsOpen] = useState(false)
 
     const addToCart = (id) => {
     setCartItems((currentItems) => {
@@ -61,6 +84,10 @@ import React from "react";
     });
   };
 
+  const handleLogin = () => {
+    setIsLogin(true)
+  }
+
   const totalCartItems= cartItems.reduce((totalQty, item) => totalQty + item.qty, 0);
     return(
         <AppContext.Provider 
@@ -72,7 +99,12 @@ import React from "react";
             removeOne,
             getQty,
             removeFromCart,
-            totalCartItems
+            totalCartItems,
+            isLogin,
+            setIsLogin,
+            handleLogin,
+            isOpen,
+            setIsOpen
         }}>
             {children}
         </AppContext.Provider>
