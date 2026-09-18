@@ -35,7 +35,7 @@ import React from "react";
   const [isLogin, setIsLogin] = useState(false)
 
   const [isOpen, setIsOpen] = useState(false)
-
+  
     const addToCart = (id) => {
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id == id) == null) {

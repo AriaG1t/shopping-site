@@ -13,7 +13,6 @@ function Modal(){
     const hideModal = () => {
         setIsOpen(false)
     }
-    console.log(mode);
     
     return(
         <div onClick={hideModal} className="flex justify-center items-center fixed w-screen h-screen top-0 left-0 z-99 opbg2">

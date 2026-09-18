@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "../Container/Container";
 import { useAppContext } from "../../../context/AppContext";
 
 function Login() {
 
-    const {handleLogin, setIsOpen} = useAppContext()
+    const {handleLogin, setIsOpen, setIsLogin} = useAppContext()
 
     return (
         <Container>

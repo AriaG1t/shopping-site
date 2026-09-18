@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../../components/Container/Container";
 import CartItem from "../../components/CartItem/CartItem";
 import { useAppContext } from "../../../context/AppContext";
+import { getProduct } from "../../../services/api";
 
 function Cart(){
 
     const {cartItems} = useAppContext()
     
+    const [items, setItems] = useState([])
     
+    useEffect(() => {
+        const getCartProducts = async () => {
+            const result = await Promise.all(
+                cartItems.map(item => getProduct(item.id))
+            )
+            setItems(result)
+        }
+
+        getCartProducts()
+    },[cartItems])
+    
+    const priceSum = items.reduce((total, item) => {
+       const itemQty = cartItems.find(i => item.id == i.id)
+
+       if(!itemQty){
+        return total
+       }
+
+       const fullPrice = item.price * itemQty.qty
+
+       return total = total + fullPrice
+    },0)
+
     return(
         <Container>
             <h1 className="text-2xl text-right font-bold mb-5">سبد خرید</h1>
@@ -23,9 +48,9 @@ function Cart(){
                     فاکتور نهایی
                 </h2>
                 <div className="my-5 flex justify-evenly sm:flex-row flex-col">
-                    <p className="text-base font-bold">قیمت کل: 12,000,000</p>
-                    <p className="text-base text-amber-800 font-bold sm:my-0 my-4">تخفیف: 2,000,000</p>
-                    <p className="text-base font-bold text-green-900">قیمت نهایی: 10,000,000</p>
+                    <p className="text-base font-bold">قیمت کل: ${priceSum}</p>
+                    <p className="text-base text-amber-800 font-bold sm:my-0 my-4">تخفیف: -</p>
+                    <p className="text-base font-bold text-green-900">قیمت نهایی: ${priceSum}</p>
                 </div>
                 <button className="text-lg py-2 cursor-pointer anim lg:w-[35%] sm:w-[50%] w-[80%] rounded bg-green-700 hover:scale-105 text-white">ثبت سفارش</button>
             </div>

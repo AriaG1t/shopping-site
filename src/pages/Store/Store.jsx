@@ -37,7 +37,7 @@ function Store(){
         searchData = ""
     }
     else {
-        products.filter((item) =>{
+        products.map((item) =>{
             const lower2 = item.category.toLowerCase()
             const lower = item.title.toLowerCase()
             if (lower.includes(inputText) || lower2.includes(inputText)){ 
